@@ -1,0 +1,69 @@
+/*You are given an array arr. The size of the array is given by sizeOfArray. You need to insert an element at given index and print the modified array.
+
+You only need to complete the function insertAtIndex() that takes arr, sizeOfArray, index, element as input. The printing is done by driver code.
+
+Examples:
+Input:
+2
+6
+1 2 3 4 5
+5 90
+6
+1 2 3 4 5
+2 90
+
+Output:
+1 2 3 4 5 90
+1 2 90 3 4 5
+
+Explanation:
+Testcase 1: 90 in inserted at index 5(0-based indexing). After inserting, array elements are like 1, 2, 3, 4, 5, 90.
+
+Testcase 2: 90 in inserted at index 2(0-based indexing). After inserting, array elements are like 1, 2, 90, 3, 4, 5.*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void insertAtIndex(int arr[],int sizeOfArray,int index,int element);
+
+void insertAtIndex(int arr[], int sizeOfArray, int index, int element)
+{
+    //Your code here
+    //cout<<"\nIn Func";
+    for(int i=sizeOfArray-2;i>=index;i--)
+    {
+        arr[i+1]=arr[i];
+    }
+    arr[index]=element;
+}
+
+int main() {
+    int t;
+    cin>>t;//Input testcases
+   // cout<<"\n In main";
+    while(t--)
+    {
+       //  cout<<"\n In while";
+        int sizeOfArray; 
+        cin>>sizeOfArray;
+        
+        int arr[sizeOfArray];
+        for(int i=0;i<sizeOfArray-1;i++)
+        cin>>arr[i];
+        
+        int index;
+        cin>>index;
+        int element;
+        cin>>element;
+        // cout<<"\n before func call";
+        insertAtIndex(arr,sizeOfArray,index,element); //Complete this function
+       // cout<<"\n after func call";
+        for(int i=0;i<sizeOfArray;i++)//Printing the array for verification
+        cout<<arr[i]<<" ";
+        
+        cout<<endl;
+        
+    }
+    
+	return 0;
+}
